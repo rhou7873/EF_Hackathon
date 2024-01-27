@@ -1,0 +1,22 @@
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import type { NextApiRequest, NextApiResponse } from "next";
+import querystring from "query-string";
+
+export const REDIRECT_URI = "http://localhost:3000/api/login-callback"
+
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  const RESPONSE_TYPE = "code"
+
+  const redirect = res.redirect("https://accounts.spotify.com/authorize?" +
+    querystring.stringify({
+      response_type: RESPONSE_TYPE,
+      client_id: process.env.CLIENT_ID,
+      redirect_uri: REDIRECT_URI
+    }))
+}
+
+
+

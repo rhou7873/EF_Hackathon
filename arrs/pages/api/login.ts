@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import querystring from "query-string";
 
 export const REDIRECT_URI = "http://localhost:3000/api/login-callback"
+export const SCOPE = "user-top-read playlist-modify-public playlist-modify-private"
 
 export default function handler(
   req: NextApiRequest,
@@ -14,7 +15,8 @@ export default function handler(
     querystring.stringify({
       response_type: RESPONSE_TYPE,
       client_id: process.env.CLIENT_ID,
-      redirect_uri: REDIRECT_URI
+      redirect_uri: REDIRECT_URI,
+      scope: SCOPE
     }))
 }
 

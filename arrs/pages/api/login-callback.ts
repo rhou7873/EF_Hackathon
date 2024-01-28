@@ -1,8 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { REDIRECT_URI } from "./login";
 import querystring from "query-string";
+import { LocalStorage } from "node-localstorage"
 
 const request = require("request")
+export let localStorage = new LocalStorage("./scratch")
 
 export default function handler(
   req: NextApiRequest,

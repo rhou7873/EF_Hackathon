@@ -32,14 +32,14 @@ export default async function handler(
         } else {
             const json = await response.json()
             
-            const list = json.items.map(artist => artist.genres)
-            const percentage = req.query.percentage //100 -> uncurated 0 -> curated
+            const list = json.items.map((artist: any) => artist.genres)
+            const percentage: number = req.query.percentage ? parseInt(req.query.percentage as string) : 0 //100 -> uncurated 0 -> curated
             const numCurated = Math.round(5 - 5 * percentage / 100)
             
 
             const set = new Set();
-            list.forEach(innerlist => {
-                innerlist.forEach(item => {
+            list.forEach((innerlist: any) => {
+                innerlist.forEach((item: any) => {
                     set.add(item);
                 })
             })

@@ -2,7 +2,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import querystring from "query-string";
 
-export const REDIRECT_URI = "https://arrs.vercel.app/api/login-callback"
+// export const REDIRECT_URI = "https://arrs.vercel.app/api/login-callback"
+export const REDIRECT_URI = "http://localhost:3000/api/login-callback"
 export const SCOPE = "user-top-read playlist-modify-public playlist-modify-private"
 
 export default function handler(
